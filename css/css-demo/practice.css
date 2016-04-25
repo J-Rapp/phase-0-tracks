@@ -13,3 +13,32 @@ section.job {
 .accomplishments {
 	font-size: .8em;
 }
+
+/* Ex. of Question2 */
+.accomplishments:hover {
+	font-size: 2em;
+}
+
+/* Ex of Question3 */
+section#work-experience section {
+	color: red;
+}
+
+/* 
+
+Question 1) Cascading essentially means that
+there is a "pecking order" to how the browser displays style.
+If there is a conflict the browser applies the last declared 
+rule in all style sheets and rule sets, as implied by the 
+term "cascading" in CSS.
+
+Question 2) A psuedo-selector is a rule that is 
+only displayed by the browser if certain criteria
+(likely equates to a Boolean value) is met. We added
+an example of this to the "accomplishments" class above.
+
+Question 3) You can use CSS to select specific child elements
+by listing them after the parent element in the selector.
+We added an example of this above.
+
+*/
