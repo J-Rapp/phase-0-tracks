@@ -1,3 +1,4 @@
+# Amy Plant and Jake Rapp
 # Encryption password
 # User inputs password
 # For every letter in the password, it will get switched out with the next letter in the alphabet
@@ -20,7 +21,6 @@ def encrypt(password)
 
 end
 
-p encrypt("googlez")
 
 # Decryption method
 
@@ -38,4 +38,24 @@ def decrypt(password)
 	return password
 end
 
-p decrypt ("hpphmfa")
+# Driver code
+
+# Ask the user to if they want to encrypt or decrypt
+
+puts "Would you like to encrypt or decrypt?"
+answer = gets.chomp[0].downcase
+
+# Ask them for the password
+
+puts "What is your password?"
+password = gets.chomp
+
+# Print their results, nicely
+
+	if answer == "e"
+		puts "Your excrypted password is #{encrypt(password)}"
+	elsif answer == "d"
+		puts "Your decrytped password is #{decrypt(password)}"
+	else
+		puts "I didn't understand if you wanted it encrypted or decrypted."
+	end
