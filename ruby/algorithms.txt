@@ -1,4 +1,39 @@
 
+#Robot using an elevator#
+
+- After entering the elevator, robot scans the elevator panel for buttons with integer values on them
+- For every button with an integer, robot stores the spatial information as a like variable
+    - If button is not a valid integer (such as the "door close" button), robot disregards button
+- Robot then asks you what floor you would like to go to
+    - Until floor number is a stored integer, robot asks what floor again
+    - When floor number is a stored integer, robot presses the correlated button
+    - Secret string passphrase "Heaven", robot overrides elevator controls and shoots you to space
+- If there are no buttons and it's some fancy-pants touch screen elevator, robot self-desctructs
+
+
+#Real life algorithm idea - The Dish Washer#
+
+- Grab dirty dish from the sink
+    - If washing instructions state it is not dishwasher safe, gets set to the side
+- Prep the dish
+    - Turn on hot water
+    - Rinse off debris
+        - If debris sticks on the dish, grab scrubby sponge
+        - Put soap on scrubby sponge
+        - Scrub debris spots until removed
+        - If time spent scrubbing debris is greater than ten seconds, stop attempt
+    - Turn off water
+- Once dish is prep, place dish in the dishwasher
+    - If larger dish, place near outside perimeter on rack
+    - If similar size and shape to another dish, stack in same area and similar manner
+    - If top rack only washing instructions, place on top rack
+    - If utensil, put in utnesil holder
+    - If sharp knife, put on top rack
+    - If cup or mug, put on top rack
+    - Until all dish surface areas exposed to water jet streams, reposition dishes
+- Open detergent holder and insert desired dish detergent
+- Close dishwasher and begin cycle
+- Finish by hand-washing all non-dishwasher safe dished and air dry
 
 
 
