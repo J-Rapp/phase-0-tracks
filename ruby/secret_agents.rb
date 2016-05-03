@@ -17,8 +17,25 @@ def encrypt(password)
 		index += 1
 	end
 	return password
+
 end
 
 p encrypt("googlez")
 
 # Decryption method
+
+def decrypt(password)
+
+	i = 0
+	alpha = "abcdefghijklmnopqrstuvwxyz"
+
+	while i < password.length
+		new_index = alpha.index(password[i]) - 1
+		password[i] = alpha[new_index]
+		i += 1
+	end
+
+	return password
+end
+
+p decrypt ("hpphmfa")
