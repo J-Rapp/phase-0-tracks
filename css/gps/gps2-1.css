@@ -1,0 +1,20 @@
+body {
+    margin: 5%;
+}
+
+section {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+    margin-right: 5px;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+h2 {
+    background: gray;
+}
+
+footer {
+    padding-top: 10px;
+}
