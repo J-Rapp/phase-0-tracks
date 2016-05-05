@@ -2,9 +2,9 @@
 
 puts "Thank you for applying to Werewolf, Inc."
 puts "What is your name?"
-    name = gets.chomp.to_s
+	name = gets.chomp.to_s
 puts "How old are you?"
-    age = gets.chomp.to_i
+	age = gets.chomp.to_i
 puts "What year were you born? (yyyy)"
 	year = gets.chomp.to_i
 puts "Do you like garlic? (y/n)"
@@ -12,14 +12,26 @@ puts "Do you like garlic? (y/n)"
 puts "Will you be enrolling in health insurance? (y/n)"
 	insurance = gets.chomp
 
-p name, age, year, garlic, insurance
-
 # Release 2 requires some programming skillz to add some logic to all this.
 # We're going to be calling on the && and || operators later on, which
 # means we need all our data to be in Boolean (or at least truthy/falsey).
 
 # First, let's make sure their age matches their birth year, and convert that to Boolean.
+def age_test(y, a)
+	current_year = Time.new.year
+	if current_year - y == a
+		return "true"
 	# Let's also consider they might not have had their birthday yet this year.
+	elsif current_year - (y + 1) == a
+		return "true"
+	else
+		return "false"
+	end
+end
+
+correct_age = age_test(year, age)
+# We now have a Boolean to see if they are telling the truth about their age.
+
 
 # Next, let's convert garlic and insurance preferences into Booleans.
 
