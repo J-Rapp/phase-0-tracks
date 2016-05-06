@@ -33,10 +33,6 @@ def age_test(y, a)
 	end
 end
 
-correct_age = age_test(year, age)
-
-# We now have a Boolean to see if they are telling the truth about their age.
-
 # Next, let's make a method to convert garlic and insurance preferences into Booleans.
 
 def yn_to_boolean(input)
@@ -50,33 +46,39 @@ def yn_to_boolean(input)
 	end
 end
 
+# Time to call the methods to give us usuable data in new variables.
+
+correct_age = age_test(year, age)
 garlic_b = yn_to_boolean(garlic)
 insurance_b = yn_to_boolean(insurance)
-p correct_age, garlic_b, insurance_b
 
-# Now that we have Boolean values for our input, it's time for the logic bits!
-
+# Now that we have Boolean values for our inputs, it's time for the logic bits!
+# Even if the employee is an amazing liar otherwise, anyone going by the name of “Drake Cula” or “Tu Fang” is clearly a vampire, because come on. In that case, you should print “Definitely a vampire.”
+# I put this on top so that it took precedence over evaluating the other information.
+	if name == "Drake Cula"
+		p "Definitely a vampire."
+	elsif name == "Tu Fang"
+		p "Definitely a vampire."
 # If the employee got their age right, and is willing to eat garlic bread or sign up for insurance, the result is “Probably not a vampire.”
-	if correct_age && (garlic_b || insurance_b) == true
+	elsif correct_age && (garlic_b || insurance_b)
 		p "Probably not a vampire."
-
 # If the employee got their age wrong, and hates garlic bread or waives insurance, the result is “Probably a vampire.”
-	elsif correct_age || (garlic_b || insurance_b) == true
+# I discovered that this argument also conveniently catches "right age, no garlic, no insurance."
+# I think this is because the || operator short circuits when the left operand = true
+	elsif correct_age || (garlic_b || insurance_b)
 		p "Probably a vampire."
-
 # If the employee got their age wrong, hates garlic bread, and doesn’t want insurance, the result is “Almost certainly a vampire.”
 	elsif correct_age || (garlic_b || insurance_b) == false
 		p "Almost certainly a vampire."
-
-# Even if the employee is an amazing liar otherwise, anyone going by the name of “Drake Cula” or “Tu Fang” is clearly a vampire, because come on. In that case, you should print “Definitely a vampire.”
-	# elsif name == 
-
 # Otherwise, print “Results inconclusive.”
+# Call me crazy, but I'm pretty sure given my short-circuited "elsifs" above there is no combination that will spit this "else" out.
 	else
 		p "Results inconclusive."
-
 end
 
+# Things I just learned:
+# 1) The order of if/elsifs does matter, it works in a heirarchy/cascase similar to CSS
+# 2) && and || operators can short circuit and mess up results if you're not careful
 
 
 # On to Release 3!
