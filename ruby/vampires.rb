@@ -97,7 +97,8 @@ until employees < 1
 
 	# First check if they listed 'sun' for allergies above (release 4)
 		if finish_app
-	# Even if the employee is an amazing liar otherwise, anyone going by the name of “Drake Cula” or “Tu Fang” is clearly a vampire, because come on. In that case, you should print “Definitely a vampire.”
+	# Even if the employee is an amazing liar otherwise, anyone going by the name of “Drake Cula” or “Tu Fang”
+	# is clearly a vampire, because come on. In that case, you should print “Definitely a vampire.”
 	# I put this on top so that it took precedence over evaluating the other information.
 		elsif name == "Drake Cula"
 			puts ""
@@ -105,22 +106,26 @@ until employees < 1
 		elsif name == "Tu Fang"
 			puts ""
 			puts "Result: Definitely a vampire."
-	# If the employee got their age right, and is willing to eat garlic bread or sign up for insurance, the result is “Probably not a vampire.”
+	# If the employee got their age right, and is willing to eat garlic bread or sign up for insurance, 
+	# the result is “Probably not a vampire.”
 		elsif correct_age && (garlic_b || insurance_b)
 			puts ""
 			puts "Result: Probably not a vampire."
-	# If the employee got their age wrong, and hates garlic bread or waives insurance, the result is “Probably a vampire.”
+	# If the employee got their age wrong, and hates garlic bread or waives insurance, the result is 
+	# “Probably a vampire.”
 	# I discovered that this argument also conveniently catches "right age, no garlic, no insurance."
 	# I think this is because the || operator short circuits when the left operand = true
 		elsif correct_age || (garlic_b || insurance_b)
 			puts ""
 			puts "Result: Probably a vampire."
-	# If the employee got their age wrong, hates garlic bread, and doesn’t want insurance, the result is “Almost certainly a vampire.”
+	# If the employee got their age wrong, hates garlic bread, and doesn’t want insurance, the result is 
+	# “Almost certainly a vampire.”
 		elsif correct_age || (garlic_b || insurance_b) == false
 			puts ""
 			puts "Result: Almost certainly a vampire."
 	# Otherwise, print “Results inconclusive.”
-	# Call me crazy, but I'm pretty sure given my short-circuited "elsifs" above there is no combination that will spit this "else" out.
+	# Call me crazy, but I'm pretty sure given my short-circuited "elsifs" above there is no combination 
+	# that will spit this "else" out.
 		else
 			puts ""
 			puts "Results inconclusive."
