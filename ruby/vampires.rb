@@ -52,14 +52,31 @@ end
 
 garlic_b = yn_to_boolean(garlic)
 insurance_b = yn_to_boolean(insurance)
+p correct_age, garlic_b, insurance_b
 
 # Now that we have Boolean values for our input, it's time for the logic bits!
 
 # If the employee got their age right, and is willing to eat garlic bread or sign up for insurance, the result is “Probably not a vampire.”
+	if correct_age && (garlic_b || insurance_b) == true
+		p "Probably not a vampire."
+
 # If the employee got their age wrong, and hates garlic bread or waives insurance, the result is “Probably a vampire.”
+	elsif correct_age || (garlic_b || insurance_b) == true
+		p "Probably a vampire."
+
 # If the employee got their age wrong, hates garlic bread, and doesn’t want insurance, the result is “Almost certainly a vampire.”
+	elsif correct_age || (garlic_b || insurance_b) == false
+		p "Almost certainly a vampire."
+
 # Even if the employee is an amazing liar otherwise, anyone going by the name of “Drake Cula” or “Tu Fang” is clearly a vampire, because come on. In that case, you should print “Definitely a vampire.”
+	# elsif name == 
+
 # Otherwise, print “Results inconclusive.”
+	else
+		p "Results inconclusive."
+
+end
+
 
 
 # On to Release 3!
