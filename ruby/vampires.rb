@@ -31,7 +31,7 @@ until employees < 1
 
 	# Release 4 asks us to create an allergy question with a loop
 	# The loop must continue to retrieve allergies from the application until the user types "done"
-	# The loop must break the whole application process is "sunshine" is listed.
+	# The loop must break the whole application process if "sunshine" is listed.
 	puts ""
 	puts "Do you have any allergies?"
 	puts "Enter one at a time, press enter after each, and type 'done' when complete."
@@ -47,7 +47,6 @@ until employees < 1
 			p "Result: Definitely a vampire."
 			moving_on = true
 			finish_app = true
-			break
 		else
 		end
 	end
