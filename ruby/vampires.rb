@@ -11,17 +11,46 @@ until employees < 1
 	puts ""
 	puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	puts "Welcome to Werewolf Inc."
+	puts ""
 	puts "What is your name?"
 		name = gets.chomp.to_s
+	puts ""
 	puts "How old are you?"
 		age = gets.chomp.to_i
+	puts ""
 	puts "What year were you born? (yyyy)"
 		year = gets.chomp.to_i
+	puts ""
 	puts "Do you like garlic? (y/n)"
 		garlic = gets.chomp[0].downcase
+	puts ""
 	# The [0] index and .downcase will auto convert any input to a lowercase of the first letter.
 	puts "Will you be enrolling in health insurance? (y/n)"
 		insurance = gets.chomp[0].downcase
+
+	# Release 4 asks us to create an allergy question with a loop
+	# The loop must continue to retrieve allergies from the application until the user types "done"
+	# The loop must break the whole application process is "sunshine" is listed.
+	puts ""
+	puts "Do you have any allergies?"
+	puts "Enter one at a time, press enter after each, and type 'done' when complete."
+	moving_on = false
+	finish_app = false
+	until moving_on
+		allergy = gets.chomp.to_s
+		case allergy
+		when "done", "Done", "None", "none"
+			moving_on = true
+		when "sunshine", "Sunshine", "sun", "Sun"
+			p "Definitely a vampire."
+			moving_on = true
+			finish_app = true
+			break
+		else
+		end
+	end
+		
+		
 
 	# Release 2 requires some programming skillz to add some logic to all this.
 	# I'm going to be calling on the && and || operators later on, which
@@ -63,9 +92,12 @@ until employees < 1
 	insurance_b = yn_to_boolean(insurance)
 
 	# Now that I have Boolean values for our inputs, it's time for the logic bits!
+
+	# First check if they listed 'sun' for allergies above (release 4)
+		if finish_app
 	# Even if the employee is an amazing liar otherwise, anyone going by the name of “Drake Cula” or “Tu Fang” is clearly a vampire, because come on. In that case, you should print “Definitely a vampire.”
 	# I put this on top so that it took precedence over evaluating the other information.
-		if name == "Drake Cula"
+		elsif name == "Drake Cula"
 			p "Definitely a vampire."
 		elsif name == "Tu Fang"
 			p "Definitely a vampire."
