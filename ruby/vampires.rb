@@ -1,8 +1,9 @@
 
 
 # Release 3 asks us to create a loop of the whole application process -
-puts "
-(For internal use only) How many employees are you interviewing today?"
+puts ""
+puts "(For internal use only)"
+puts "How many employees are you interviewing today?"
 	employees = gets.chomp.to_i
 
 until employees < 1
@@ -42,7 +43,8 @@ until employees < 1
 		when "done", "Done", "None", "none"
 			moving_on = true
 		when "sunshine", "Sunshine", "sun", "Sun"
-			p "Definitely a vampire."
+			p ""
+			p "Result: Definitely a vampire."
 			moving_on = true
 			finish_app = true
 			break
@@ -98,23 +100,29 @@ until employees < 1
 	# Even if the employee is an amazing liar otherwise, anyone going by the name of “Drake Cula” or “Tu Fang” is clearly a vampire, because come on. In that case, you should print “Definitely a vampire.”
 	# I put this on top so that it took precedence over evaluating the other information.
 		elsif name == "Drake Cula"
-			p "Definitely a vampire."
+			p ""
+			p "Result: Definitely a vampire."
 		elsif name == "Tu Fang"
-			p "Definitely a vampire."
+			p ""
+			p "Result: Definitely a vampire."
 	# If the employee got their age right, and is willing to eat garlic bread or sign up for insurance, the result is “Probably not a vampire.”
 		elsif correct_age && (garlic_b || insurance_b)
-			p "Probably not a vampire."
+			p ""
+			p "Result: Probably not a vampire."
 	# If the employee got their age wrong, and hates garlic bread or waives insurance, the result is “Probably a vampire.”
 	# I discovered that this argument also conveniently catches "right age, no garlic, no insurance."
 	# I think this is because the || operator short circuits when the left operand = true
 		elsif correct_age || (garlic_b || insurance_b)
-			p "Probably a vampire."
+			p ""
+			p "Result: Probably a vampire."
 	# If the employee got their age wrong, hates garlic bread, and doesn’t want insurance, the result is “Almost certainly a vampire.”
 		elsif correct_age || (garlic_b || insurance_b) == false
-			p "Almost certainly a vampire."
+			p ""
+			p "Result: Almost certainly a vampire."
 	# Otherwise, print “Results inconclusive.”
 	# Call me crazy, but I'm pretty sure given my short-circuited "elsifs" above there is no combination that will spit this "else" out.
 		else
+			p ""
 			p "Results inconclusive."
 	end
 
@@ -122,6 +130,7 @@ until employees < 1
 	# 1) The order of if/elsifs does matter, it works in a heirarchy/cascase similar to CSS
 	# 2) && and || operators can short circuit and mess up results if you're not careful
 
+	puts ""
 	puts "Thank you for applying to Werewolf, Inc."
 	puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	puts ""
