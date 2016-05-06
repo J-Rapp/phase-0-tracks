@@ -76,6 +76,7 @@ insurance_b = yn_to_boolean(insurance)
 		p "Results inconclusive."
 end
 
+
 # Things I just learned:
 # 1) The order of if/elsifs does matter, it works in a heirarchy/cascase similar to CSS
 # 2) && and || operators can short circuit and mess up results if you're not careful
