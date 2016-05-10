@@ -7,7 +7,7 @@
 p "iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
-# p "zom".tr("o", "oo")
+p "zom".gsub("o", "oo")
 # => “zoom”
 
 p "enhance".center(15)
@@ -33,9 +33,10 @@ p "The mystery of the missing first letter".slice(1..40)
 p "Elementary,    my   dear        Watson!".squeeze
 # => "Elementary, my dear Watson!"
 
-p "z".to_i
+p "z".ord
 # => 122 
 # (What is the significance of the number 122 in relation to the character z?)
 
-# "How many times does the letter 'a' appear in this string?".<???>
+p "How many times does the letter 'a' appear in this string?".count("a")
 # => 4
+
