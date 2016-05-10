@@ -1,3 +1,21 @@
+# Release 2
+
+def build_array (x, y, z)
+	method_array = []
+	method_array << x << y << z
+	# Implicly returns the created Array
+end
+
+p build_array("jake", "was", "here")
+
+def add_to_array (original_array, item)
+	original_array.push item
+end
+
+p add_to_array(build_array("jake", "was", "here"), 42)
+
+# Release 1
+
 this_array = []
 
 this_array << 5 << "here's a string" << false << nil << 0
@@ -23,3 +41,4 @@ that_array = [56, "jake", "ed", 42, false]
 
 new_array = this_array + that_array
 p new_array
+
