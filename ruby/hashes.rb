@@ -10,10 +10,13 @@
 # hash_name.default = "default_value"
 
 # 4) How can you access just the keys of a hash? What data type does this method return?
-# 
+# hash_name.keys - gets you an array!
 
 # 5) How do you remove everything from the hash at once (returning an empty hash)?
-# 
+# hash_name.clear
 
 # 6) How can you access just the values of a hash?
-# 
+# hash_name.values
+
+# Release 3
+
