@@ -22,28 +22,46 @@
 
 # Release 3
 
-# Goal of this is to create a Ruby program that collects input from the user (in this case an interior designer) and organizes that data into a hash.
+# Goal of this is to create a Ruby program that collects input from the user (in this case an interior designer) and organizes that data into a hash that can be altered if needed.
 # They need to be able to enter the following details about their client:
 # Name, Age, Number of children, decor theme, and anything other inputs that will give me a good combo of string, integer, and Boolean values.
 # Keys should be symbols, unless a string is needed for some reason
 
-# First, we need to prompt the user for data input.
+# First, I need to prompt the user for data input and convert that into usable data in the hash.
+# Strings and integer methods already exist, but I'll make a simple monkey patch method to convert to Boolean
+
+def to_boolean(x)
+	if x == "y"
+		return true
+	else
+		return false
+	end
+end
+
+# I also need to initiate the empty hash before adding the input to it.
+
+client_profile = {}
+
+# I can efficiently assign the "gets.chomp" inputs as values that automatically populate hash keys
 
 puts "What is the client's name?"
+client_profile[:name] = gets.chomp
 
 puts "What is the client's age?"
+client_profile[:age] = gets.chomp.to_i
 
 puts "How many children does the client have?"
+client_profile[:kids] = gets.chomp.to_i
 
-puts "What is the client's decore theme?"
+puts "What is the client's decor theme?"
+client_profile[:decor] = gets.chomp
 
 puts "Does the client like crazy patterns?"
+client_profile[:crazy] = to_boolean(gets.chomp[0].downcase)
+# A downcased zero index for the string should produce "y" or "n"
 
-puts "Does the client like minimalism"
-
-# Next, we need to convert the input into useable data.
-
-
+puts "Does the client like minimalism?"
+client_profile[:minimalism] = to_boolean(gets.chomp[0].downcase)
 
 # Print the hash back out upon completing the input program.
 
