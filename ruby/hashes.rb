@@ -19,7 +19,6 @@
 # hash_name.values
 
 
-
 # Release 3
 
 # Goal of this is to create a Ruby program that collects input from the user (in this case an interior designer) and organizes that data into a hash that can be altered if needed.
@@ -28,7 +27,7 @@
 # Keys should be symbols, unless a string is needed for some reason
 
 # First, I need to prompt the user for data input and convert that into usable data in the hash.
-# Strings and integer methods already exist, but I'll make a simple monkey patch method to convert to Boolean
+# Strings and integer conversion methods already exist, but I'll make a simple monkey patch method to convert to Boolean
 
 def to_boolean(x)
 	if x == "y"
@@ -38,14 +37,15 @@ def to_boolean(x)
 	end
 end
 
-# I also need to initiate the empty hash before adding the input to it.
+# I also need to initiate the empty hash before adding the inputs to it.
 
 client_profile = {}
 
-# I can efficiently assign the "gets.chomp" inputs as values that automatically populate hash keys
+# Now on to the "driver code"
 
 puts "What is the client's name?"
 client_profile[:name] = gets.chomp
+# I can efficiently assign the "gets.chomp" inputs as values that automatically populate hash keys
 
 puts "What is the client's age?"
 client_profile[:age] = gets.chomp.to_i
@@ -56,17 +56,21 @@ client_profile[:kids] = gets.chomp.to_i
 puts "What is the client's decor theme?"
 client_profile[:decor] = gets.chomp
 
-puts "Does the client like crazy patterns?"
+puts "Does the client like crazy patterns? (y/n)"
 client_profile[:crazy] = to_boolean(gets.chomp[0].downcase)
 # A downcased zero index for the string should produce "y" or "n"
 
-puts "Does the client like minimalism?"
+puts "Does the client like minimalism? (y/n)"
 client_profile[:minimalism] = to_boolean(gets.chomp[0].downcase)
 
 # Print the hash back out upon completing the input program.
 
 puts client_profile
 
-# Give the opportunity to update the value of a key if needed, or 'none' if no changes are needed. For the purpose of the assignment, we can assume that the user will input a correct/pre-existing key when prompted - no need to check for errors.
+# Give the opportunity to update the value of a key if needed, or 'none' if no changes are needed. For the purpose of the assignment, I can assume that the user will input a correct/pre-existing key when prompted - no need to check for errors.
+
+puts "Are any changes needed?"
 
 # Print the updated version of the hash and exit the program.
+
+puts client_profile
