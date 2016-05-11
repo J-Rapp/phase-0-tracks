@@ -69,7 +69,29 @@ puts client_profile
 
 # Give the opportunity to update the value of a key if needed, or 'none' if no changes are needed. For the purpose of the assignment, I can assume that the user will input a correct/pre-existing key when prompted - no need to check for errors.
 
-puts "Are any changes needed?"
+puts "Input a key you would like to change, or type 'none' if no changes are needed."
+
+# Set up a state for the loop to change
+changes_made = false
+
+until changes_made
+	key_shift = gets.chomp.downcase
+	case key_shift
+		when "name", "age", "kids", "decor", "crazy", "minimalism"
+			# stuff happens to change value
+		when "none"
+			changes_made = true
+		else
+			puts "Sorry, come again?"
+	end
+end
+
+# Idea) ask what key, then what value, put those in a new temporary hash, use #.update to merge the new hash
+# Idea) explore the string ID hint in the release
+# Idea) new variable key = ":" + gets.chomp, then plug that in client_profile[key] = gets.chomp
+# Idea) Use block knowledge from 5.4, something like - client_profile.update(client_profile) { |key, value1| value1 }
+# Idea) client_profile.values_at(user_input_key)
+
 
 # Print the updated version of the hash and exit the program.
 
