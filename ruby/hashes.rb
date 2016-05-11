@@ -30,10 +30,11 @@
 # Strings and integer conversion methods already exist, but I'll make a simple monkey patch method to convert to Boolean
 
 def to_boolean(x)
-	if x == "y"
-		return true
-	else
-		return false
+	case x 
+		when "y", "t"
+			return true
+		else
+			return false
 	end
 end
 
@@ -75,23 +76,35 @@ puts "Input a key you would like to change, or type 'none' if no changes are nee
 changes_made = false
 
 until changes_made
-	key_shift = gets.chomp.downcase
-	case key_shift
-		when "name", "age", "kids", "decor", "crazy", "minimalism"
-			# stuff happens to change value
+	key_change = gets.chomp.downcase
+	case key_change
+		when "name", "decor" 
+			# Idea) ask what key, then what value, put those in a new temporary hash, use #.update to merge the new hash
+			# Idea) new variable key = ":" + gets.chomp, then plug that in client_profile[key] = gets.chomp
+			# Idea) Use block knowledge from 5.4, something like - client_profile.update(client_profile) { |key, value1| value1 }
+			# Idea) client_profile.values_at(user_input_key)
+			# All those are convoluted pseudocoding I thought out prior to building the loop, but now it's a lot simpler:
+			puts "What would you like the new value to be?"
+			client_profile[key_change.to_sym] = gets.chomp
+			# Hint from release - key_change.downcase.to_sym gets us ":input"
+			puts "Any other keys? Type 'none' if no changes are needed."
+		when "age", "kids"
+			# For the integers
+			puts "What would you like the new value to be?"
+			client_profile[key_change.to_sym] = gets.chomp.to_i
+			puts "Any other keys? Type 'none' if no changes are needed."
+		when "crazy", "minimalism"
+			# For the Booleans, since we need to run the conversion method again
+			puts "What would you like the new value to be?"
+			client_profile[key_change.to_sym] = to_boolean(gets.chomp[0].downcase)
+			puts "Any other keys? Type 'none' if no changes are needed."
 		when "none"
+			puts "Okie dokie!"
 			changes_made = true
 		else
-			puts "Sorry, come again?"
+			puts "Sorry, come again? (Did you add a colon? Get that shit outta there!)"
 	end
 end
-
-# Idea) ask what key, then what value, put those in a new temporary hash, use #.update to merge the new hash
-# Idea) explore the string ID hint in the release
-# Idea) new variable key = ":" + gets.chomp, then plug that in client_profile[key] = gets.chomp
-# Idea) Use block knowledge from 5.4, something like - client_profile.update(client_profile) { |key, value1| value1 }
-# Idea) client_profile.values_at(user_input_key)
-
 
 # Print the updated version of the hash and exit the program.
 
