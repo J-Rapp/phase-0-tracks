@@ -8,7 +8,11 @@ apartment = {
 			"Studio",
 			"One Bedroom, One Bath"
 		],
-		filled: true
+		filled: true,
+		active_issues: [
+			"Lightbulb out in unit 110",
+			"Ceiling damage in unit 102"
+		]
 	},
 	floor_2: {
 		units: 8,
@@ -18,7 +22,10 @@ apartment = {
 			"Two Bedroom, One Bath",
 			"Two Bedroom, Two Bath"
 		],
-		filled: false
+		filled: false,
+		active_issues: [
+			"Faucet leak in unit 206"
+		]
 	},
 	floor_3: {
 		units: 4,
@@ -26,14 +33,24 @@ apartment = {
 		unit_types: [
 			"Executive Loft"
 		],
-		filled: true
-	},
-	active_issues: [
-		"Faucet leak in unit 206",
-		"Clogged toilet in unit 301",
-		"Lightbulb out in unit 110"
-	]
+		filled: true,
+		active_issues: [
+			"Clogged toilet in unit 301"
+		]
+	}
 }
 
-# Is the units on second floor filled?
-p apartment[floor_2][filled]
+puts "Are the units on second floor filled?"
+puts apartment[:floor_2][:filled]
+
+puts "What unit types are there on the first floor?"
+puts apartment[:floor_1][:unit_types]
+
+puts "What are the current service issues for the builing?"
+puts apartment[:floor_1][:active_issues]
+puts apartment[:floor_2][:active_issues]
+puts apartment[:floor_3][:active_issues]
+
+puts "What two-bedroom unit types exist on the second floor?"
+puts apartment[:floor_2][:unit_types][1]
+puts apartment[:floor_2][:unit_types][2]
