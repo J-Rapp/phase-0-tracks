@@ -17,13 +17,7 @@ p name
 # First/last name switch
 name[0], name[1] = name[1], name[0]
 
-# NESTED ARRAYS
-name[0] = name[0].split("").each{|letter| letter.next!}.join
-name[1] = name[1].split("").each{|letter| letter.next!}.join
-
-p name.join(" ")
-
-# I need to break the "name" string into an array of individual letters
+# A method that takes a single letter string, checks for vowel/consonant, indexes up respectively, and checks for edge cases like caps letters, 'Z', etc
 
 	# def index_up(letter)
 
@@ -39,15 +33,25 @@ p name.join(" ")
 
 	# end
 
-# p name[0].split("").each{|letter| letter.next!}
-# p name[1].split("").each{|letter| letter.next!}
+# NESTED ARRAYS and calling the indexing method
+# name[0] = name[0].split("").each{ |letter| index_up(letter) }.join
+# name[1] = name[1].split("").each{ |letter| index_up(letter) }.join
+
+# I was trying a long chain like this:
+# name = gets.chomp.split.each{ |word| word.split("").each{ |letter| index_up(letter) }.join}
+# this first ".each" method into an array was turning the class to Enumerator instead of String,
+# So the parameters of the block weren't seeing a String for the next ".split"
+
+# p name.join(" ")
+
+
 # .scan
 # .gsub
 
 
 # Next I need to see if there's methods to differentiate between vowels and consonants
 # If there is I can just run that on the array
-# Otherwise I need to figureout a flow that serparates the two
+# Otherwise I need to figureout a flow that separates the two
 
 # I need each vowel and consonant to index +1, probably just within a block on the .next method
 
