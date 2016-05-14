@@ -12,6 +12,11 @@
 puts "What is your first and last name?"
 # Create an array of the first and name name as two strings
 name = gets.chomp.split
+# I was trying a long chain like this:
+# name = gets.chomp.split.each{ |word| word.split("").each{ |letter| index_up(letter) }.join}
+# this first ".each" method was turning the class to Enumerator instead of String,
+# So the parameters of the block weren't seeing a String for the next "word.split" method
+
 p name
 
 # First/last name switch
@@ -19,30 +24,35 @@ name[0], name[1] = name[1], name[0]
 
 # A method that takes a single letter string, checks for vowel/consonant, indexes up respectively, and checks for edge cases like caps letters, 'Z', etc
 
-	# def index_up(letter)
+	def index_up(letter)
 
-	# 	vowels = "aeiou"
-	# 	consonants = "bcdfghjklmnpqrstvwxyz"
+		vowel = "aeiou"
+		consonant = "bcdfghjklmnpqrstvwxyz"
 
-	# 	case letter
-	# 	when vowel
-	# 		vowel[index] = vowel[index].next
-	# 	when consonants
-	# 		consonants[index] = consonants[index].next
-	# 	end
+		if letter == "z"
+			letter = "b"
+		elsif letter == "Z"
+			letter = "B"
+		elsif letter == "u"
+			letter = "a"
+		elsif letter == "U"
+			letter = "A"	
+		elsif letter.downcase == vowel.include?letter
+			letter = vowel.index(letter).next
+		else letter.downcase == vowel.include?consonant
+			letter = consonant.index(letter).next
+		end
 
-	# end
+	end
 
 # NESTED ARRAYS and calling the indexing method
-# name[0] = name[0].split("").each{ |letter| index_up(letter) }.join
-# name[1] = name[1].split("").each{ |letter| index_up(letter) }.join
+name[0] = name[0].split("").each{ |letter| index_up(letter) }.join
+name[1] = name[1].split("").each{ |letter| index_up(letter) }.join
 
-# I was trying a long chain like this:
-# name = gets.chomp.split.each{ |word| word.split("").each{ |letter| index_up(letter) }.join}
-# this first ".each" method into an array was turning the class to Enumerator instead of String,
-# So the parameters of the block weren't seeing a String for the next ".split"
+p name.join(" ")
 
-# p name.join(" ")
+
+
 
 
 # .scan
