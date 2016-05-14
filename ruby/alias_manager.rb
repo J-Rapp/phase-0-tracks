@@ -17,23 +17,32 @@ p name
 # First/last name switch
 name[0], name[1] = name[1], name[0]
 
-p name
+# NESTED ARRAYS
+name[0] = name[0].split("").each{|letter| letter.next!}.join
+name[1] = name[1].split("").each{|letter| letter.next!}.join
+
+p name.join(" ")
 
 # I need to break the "name" string into an array of individual letters
 
-def index_up(letter)
-	vowels = "aeiou"
-	consonants = "bcdfghjklmnpqrstvwxyz"
-	case letter
-	when vowel
-		vowel[index] = vowel[index].next
-	when consonants
-		consonants[index] = consonants[index].next
-	end
-end
+	# def index_up(letter)
+
+	# 	vowels = "aeiou"
+	# 	consonants = "bcdfghjklmnpqrstvwxyz"
+
+	# 	case letter
+	# 	when vowel
+	# 		vowel[index] = vowel[index].next
+	# 	when consonants
+	# 		consonants[index] = consonants[index].next
+	# 	end
+
+	# end
 
 # p name[0].split("").each{|letter| letter.next!}
 # p name[1].split("").each{|letter| letter.next!}
+# .scan
+# .gsub
 
 
 # Next I need to see if there's methods to differentiate between vowels and consonants
