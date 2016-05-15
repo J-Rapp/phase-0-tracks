@@ -8,14 +8,16 @@
 # As I found those answers, my pseudocode got messier and very difficult to organize
 # So all my pseudocode is now cleanly re-written, albiet more explanatory than stream-of-conciousness
 
-# Before driver code, I need to create a method that takes a single letter string,
+# Before driver code, I need to create a method that takes a letter,
 # checks for vowel/consonant, indexes up respectively, and checks for 
-# edge cases like caps letters, 'Z', etc.
+# edge cases like capital letters, 'Z', etc.
 
 # To my knowledge, I don't think a built-in method like this exists...
 # In my research, it looks like it might be possible putting this method's logic
 # into the block, but I think it requires knowledge beyond what I know right now...
-# Potential research: what is "regexp" and how does it work in blocks?
+# Potential research: 
+# I don't entirely understand it, but ".gsub" looks like a decent sub for this entire method
+# What is "regexp" and how does it work in blocks like ".gsub"?
 
 def index_up(letter)
 	vowel = "aeiou".split("")
@@ -46,26 +48,30 @@ def index_up(letter)
 	end
 end
 
-# Driver code:
+# Driver code
 
 puts "Enter first and last name, or type \"quit\" when finished."
-loop_done = false
+loop_done = false # Initial loop state
+name_hash = {} # Hash will be the easiest way to store name/codename as key/value
 until loop_done
 	name = gets.chomp
 	if name.downcase == "quit"
 		loop_done = true
 	else
-		name = name.split.rotate.map!{|word|word.split("").map!{|letter|index_up(letter)}.join}.join(" ")
-		puts "Spy alias: \"#{name}\""
+		codename = name.split.rotate.map!{|word|word.split("").map!{|letter|index_up(letter)}.join}.join(" ")
+		puts "Alias: \"#{codename}\""
+		name_hash.store("#{name}","#{codename}") # Add a key/value into the hash each loop
 	end
 end
+name_hash.each{|key,value|puts"#{key} also goes by \"#{value}\""} # Print every key/value
 
-# How each bit of syntax works on line 58:
+# How each bit of syntax works on line 61:
 # 1) ".split" - Creates array containing first and last name strings
 # 2) ".rotate" - Works as my first/last name switch since there's only two array objects 
 # 3) ".map!" - Iterates through the word array and changes the values according to the following block
 # 4) "{|word|word.split("")" - Breaks each name string into nested arrays of individual letters
 # 5) ".map!" - Iterates through each letter array and changes the values according to the following block
 # 6) "{|letter|index_up(letter)}" - Block calling the index_up method above on each letter
+		# I think I could smush the entire method using .gsub and {regexp magic}, but I'm not that smart yet?
 # 7) ".join}" - Rejoins the letter arrays into name strings
 # 8) ".join(" ")" - Rejoins the word array into a string, honoring the space
