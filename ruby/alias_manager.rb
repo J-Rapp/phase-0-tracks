@@ -9,52 +9,60 @@
 # At some point I need to diffentiate between first and last so they can be switched...
 # Should I ask for First/Last seperately, or figure out a way to break into two arrays at the space? would .split(" ") work? I'll try..
 
-puts "What is your first and last name?"
+# puts "What is your first and last name?"
 # Create an array of the first and name name as two strings
-name = gets.chomp.split
+# name = gets.chomp.split
 # I was trying a long chain like this:
 # name = gets.chomp.split.each{ |word| word.split("").each{ |letter| index_up(letter) }.join}
 # this first ".each" method was turning the class to Enumerator instead of String,
 # So the parameters of the block weren't seeing a String for the next "word.split" method
 
-p name
+# p name
 
 # First/last name switch
-name[0], name[1] = name[1], name[0]
+# name[0], name[1] = name[1], name[0]
 
 # A method that takes a single letter string, checks for vowel/consonant, indexes up respectively, and checks for edge cases like caps letters, 'Z', etc
 
-	def index_up(letter)
-
-		vowel = "aeiou".split("")
-		vowel_up = "AEIOU".split("")
-		consonant = "bcdfghjklmnpqrstvwxyz".split("")
-		consonant_up = "BCDFGHJKLMNPQRSTVWXYZ".split("")
-
-		if letter == "z"
-			letter = "b"
-		elsif letter == "Z"
-			letter = "B"
-		elsif letter == "u"
-			letter = "a"
-		elsif letter == "U"
-			letter = "A"
-		elsif letter == vowel_up.include?(letter)
-			letter = vowel_up.index(letter).next
-		elsif letter == consonant_up.include?(letter)
-			letter = consonant_up.index(letter).next
-		elsif letter == vowel.include?(letter)
-			letter = vowel.index(letter).next
-		else letter == consonant.include?(letter)
-			letter = consonant.index(letter).next
-		end
+def index_up(letter)
+	vowel = "aeiou".split("")
+	vowel_up = "AEIOU".split("")
+	consonant = "bcdfghjklmnpqrstvwxyz".split("")
+	consonant_up = "BCDFGHJKLMNPQRSTVWXYZ".split("")
+	if letter == "z"
+		letter = "b"
+	elsif letter == "Z"
+		letter = "B"
+	elsif letter == "u"
+		letter = "a"
+	elsif letter == "U"
+		letter = "A"
+	elsif vowel_up.include?(letter)
+		letter = vowel_up[vowel_up.index(letter).next]
+	elsif consonant_up.include?(letter)
+		letter = consonant_up[consonant_up.index(letter).next]
+	elsif vowel.include?(letter)
+		letter = vowel[vowel.index(letter).next]
+	else consonant.include?(letter)
+		letter = consonant[consonant.index(letter).next]
 	end
+end
+
+p index_up("e")
+p index_up("R")
+p index_up("f")
+p index_up("o")
+p index_up("Z")
+p index_up("A")
+p index_up("l")
+
 
 # NESTED ARRAYS and calling the indexing method
-name[0] = name[0].split("").each{ |letter| index_up(letter) }.join
-name[1] = name[1].split("").each{ |letter| index_up(letter) }.join
 
-p name.join(" ")
+# name[0] = name[0].split("").each{ |letter| index_up(letter) }.join
+# name[1] = name[1].split("").each{ |letter| index_up(letter) }.join
+
+# p name.join(" ")
 
 
 
