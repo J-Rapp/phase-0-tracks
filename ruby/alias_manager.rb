@@ -26,8 +26,10 @@ name[0], name[1] = name[1], name[0]
 
 	def index_up(letter)
 
-		vowel = "aeiou"
-		consonant = "bcdfghjklmnpqrstvwxyz"
+		vowel = "aeiou".split("")
+		vowel_up = "AEIOU".split("")
+		consonant = "bcdfghjklmnpqrstvwxyz".split("")
+		consonant_up = "BCDFGHJKLMNPQRSTVWXYZ".split("")
 
 		if letter == "z"
 			letter = "b"
@@ -36,13 +38,16 @@ name[0], name[1] = name[1], name[0]
 		elsif letter == "u"
 			letter = "a"
 		elsif letter == "U"
-			letter = "A"	
-		elsif letter.downcase == vowel.include?letter
+			letter = "A"
+		elsif letter == vowel_up.include?(letter)
+			letter = vowel_up.index(letter).next
+		elsif letter == consonant_up.include?(letter)
+			letter = consonant_up.index(letter).next
+		elsif letter == vowel.include?(letter)
 			letter = vowel.index(letter).next
-		else letter.downcase == vowel.include?consonant
+		else letter == consonant.include?(letter)
 			letter = consonant.index(letter).next
 		end
-
 	end
 
 # NESTED ARRAYS and calling the indexing method
