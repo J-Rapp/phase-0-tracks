@@ -9,7 +9,7 @@
 # At some point I need to diffentiate between first and last so they can be switched...
 # Should I ask for First/Last seperately, or figure out a way to break into two arrays at the space? would .split(" ") work? I'll try..
 
-# puts "What is your first and last name?"
+puts "What is your first and last name?"
 # Create an array of the first and name name as two strings
 # name = gets.chomp.split
 # I was trying a long chain like this:
@@ -43,24 +43,22 @@ def index_up(letter)
 		letter = consonant_up[consonant_up.index(letter).next]
 	elsif vowel.include?(letter)
 		letter = vowel[vowel.index(letter).next]
-	else consonant.include?(letter)
+	elsif consonant.include?(letter)
 		letter = consonant[consonant.index(letter).next]
+	else
+		puts "huh"
 	end
 end
 
-p index_up("e")
-p index_up("R")
-p index_up("f")
-p index_up("o")
-p index_up("Z")
-p index_up("A")
-p index_up("l")
-
+name = gets.chomp.split.rotate.map!{ |word| word.split("").map!{ |letter| index_up(letter) }.join}.join(" ")
 
 # NESTED ARRAYS and calling the indexing method
 
-# name[0] = name[0].split("").each{ |letter| index_up(letter) }.join
-# name[1] = name[1].split("").each{ |letter| index_up(letter) }.join
+# name[0] = name[0].split("").map!{ |letter| index_up(letter) }.join
+# name[1] = name[1].split("").map!{ |letter| index_up(letter) }.join
+
+p name
+
 
 # p name.join(" ")
 
