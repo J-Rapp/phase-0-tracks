@@ -46,35 +46,26 @@ def index_up(letter)
 	end
 end
 
-# To my surprise, I am able to immediately execute the alias when the user inputs data.
-# I'll explain...
+# Driver code:
 
-puts "What is your first and last name?"
+puts "Enter first and last name, or type \"quit\" when finished."
+loop_done = false
+until loop_done
+	name = gets.chomp
+	if name.downcase == "quit"
+		loop_done = true
+	else
+		name = name.split.rotate.map!{|word|word.split("").map!{|letter|index_up(letter)}.join}.join(" ")
+		puts "Spy alias: \"#{name}\""
+	end
+end
 
-name = gets.chomp.split.rotate.map!{|word|word.split("").map!{|letter|index_up(letter)}.join}.join(" ")
-
-# How each bit of syntax works:
-
-# 1) "gets.chomp" - Gets string input from user
-
-# 2) ".split" - Creates array containing first and last name strings
-
-# 3) ".rotate" - Works as my first/last name switch since there's only two array objects 
-# I'm basically doing "name[0], name[1] = name[1], name[0]""
-# I don't need ".rotate!" because I'll be calling some bang operators in a second...
-
-# 4) ".map!" - Iterates through the word array and changes the values according to the following block
-
-# 5) "{|word|word.split("")" - Breaks each name string into nested arrays of individual letters
-
-# 6) ".map!" - Iterates through each letter array and changes the values according to the following block
-
-# 7) "{|letter|index_up(letter)}" block calling the index_up method above on each letter
-# A BLOCK WITHIN A BLOCK!? block-ception...
-
-# 8) ".join}" rejoins the letter arrays into name strings
-
-# 9) ".join(" ")" rejoins the word array into a string, honoring the space.
-
-p name
-
+# How each bit of syntax works on line 58:
+# 1) ".split" - Creates array containing first and last name strings
+# 2) ".rotate" - Works as my first/last name switch since there's only two array objects 
+# 3) ".map!" - Iterates through the word array and changes the values according to the following block
+# 4) "{|word|word.split("")" - Breaks each name string into nested arrays of individual letters
+# 5) ".map!" - Iterates through each letter array and changes the values according to the following block
+# 6) "{|letter|index_up(letter)}" - Block calling the index_up method above on each letter
+# 7) ".join}" - Rejoins the letter arrays into name strings
+# 8) ".join(" ")" - Rejoins the word array into a string, honoring the space
