@@ -51,7 +51,7 @@ end
 
 puts "What is your first and last name?"
 
-name = gets.chomp.split.rotate.map!{|word| word.split("").map!{|letter|index_up(letter)}.join}.join(" ")
+name = gets.chomp.split.rotate.map!{|word|word.split("").map!{|letter|index_up(letter)}.join}.join(" ")
 
 # How each bit of syntax works:
 
