@@ -89,4 +89,8 @@ p santa_dos.reindeer_ranking
 
 # Release 4
 
+# Create a set integer of santa instances (.new)
+# each santa should get a random assign of both gender and ethnicity (.sample should work)
+# age should be a random interger between 0 and 140
+# doesn't need to store in a data structure, but should print each instance atrrtibutes
 
