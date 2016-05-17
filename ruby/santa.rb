@@ -1,7 +1,7 @@
 class Santa
 
-	attr_reader :reindeer_ranking
-	attr_accessor :age, :gender, :ethnicity
+	attr_reader :reindeer_ranking, :ethnicity
+	attr_accessor :age, :gender
 
 	def initialize(gender, ethnicity)
 		puts "initializing Santa instance..."
@@ -47,19 +47,23 @@ class Santa
 	# end
 end
 
+# Release 0 - 
 # santa = Santa.new
 # santa.eat_milk_and_cookies("peanut butter")
 # santa.speak
 
-santas = []
-gender_array = ["agender", "demiboy", "femme", "intergender", "polygender", "queer", "transgender", "genderfluid"]
-ethnicity_array = ["Icelander", "Korean", "Serb", "Bihari", "Kurd", "Welsh", "Zhuang", "Lebanese"]
+# Release 1 -
+# santas = []
+# gender_array = ["agender", "demiboy", "femme", "intergender", "polygender", "queer", "transgender", "genderfluid"]
+# ethnicity_array = ["Icelander", "Korean", "Serb", "Bihari", "Kurd", "Welsh", "Zhuang", "Lebanese"]
 
-gender_array.length.times{|i| santas << Santa.new(gender_array[i],ethnicity_array[i])}
+# gender_array.length.times{|i| santas << Santa.new(gender_array[i],ethnicity_array[i])}
 # p santas
 
-santa_dos = Santa.new("n/a", "Polish")
 # Release 2 - setters/getters
+
+santa_dos = Santa.new("n/a", "Polish")
+
 # test setters
 	# santa_dos.celebrate_birthday
 	santa_dos.get_mad_at("Vixen")
@@ -74,15 +78,14 @@ santa_dos.age = 5
 p santa_dos.age
 
 p santa_dos.ethnicity
-santa_dos.ethnicity = "Czech"
-p santa_dos.ethnicity
+# santa_dos.ethnicity = "Czech" -- can't write, only read
 
 p santa_dos.gender
 santa_dos.gender = "Two-Spirit"
 p santa_dos.gender
 
 p santa_dos.reindeer_ranking
-# p santa_dos.reindeer_ranking = ["new array"]  -- doesn't work since the ranked array is set to read only
+# p santa_dos.reindeer_ranking = ["new array"]  -- can't write, only read
 
 # Release 4
 
