@@ -4,7 +4,7 @@ class Santa
 	attr_accessor :age, :gender
 
 	def initialize(gender, ethnicity)
-		puts "initializing Santa instance..."
+		puts "Initializing Santa instance..."
 		@gender = gender
 		@ethnicity = ethnicity
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
@@ -61,6 +61,7 @@ end
 # Release 2 - setters/getters
 
 # santa_dos = Santa.new("n/a", "Polish")
+
 # test setters
 	# santa_dos.celebrate_birthday
 	# santa_dos.get_mad_at("Vixen")
@@ -70,6 +71,8 @@ end
 	# p santa_dos.ethnicity
 
 # Release 3 - refactor age, ethnicity, and gender via "attr_accessor"
+
+# santa_dos = Santa.new("n/a", "Polish")
 
 # p santa_dos.age # Readable and writable
 # santa_dos.age = 5
@@ -87,8 +90,19 @@ end
 
 # Release 4
 
-# Create a set integer of santa instances (.new)
-# each santa should get a random assign of both gender and ethnicity (.sample should work)
-# age should be a random interger between 0 and 140
-# doesn't need to store in a data structure, but should print each instance atrrtibutes
+# Some basic ideas before starting the algorithm:
+# Create a set integer of santa instances (<integer>.times for number of santa instances using ".new")
+# Each santa should get a random assign of both gender and ethnicity (".sample" should work on the arrays to populate the class parameters)
+# Age should be a random interger between 0 and 140 (santa.age = rand(0..140) should work since @age is writable with "attr_accessor")
+# Doesn't need to store in a data structure, but should print each instance attributes (so just "puts" each instance as it happens)
 
+gender_array = ["agender", "demiboy", "femme", "intergender", "polygender", "queer", "transgender", "genderfluid"]
+ethnicity_array = ["Icelander", "Korean", "Serb", "Bihari", "Kurd", "Welsh", "Zhuang", "Lebanese"]
+
+100.times do
+	santa = Santa.new(gender_array.sample, ethnicity_array.sample)
+	santa.age = rand(0..140)
+	puts " This santa self-identifies as a #{santa.age}-year-old, #{santa.gender}, #{santa.ethnicity}."
+end
+
+# And it works!
