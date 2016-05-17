@@ -1,3 +1,5 @@
+require_relative "todolist"
+
 describe TodoList do
   let(:list) { TodoList.new(["do the dishes", "mow the lawn"]) }
 
@@ -13,6 +15,12 @@ describe TodoList do
   it "deletes an item" do
     list.delete_item("do the dishes")
     expect(list.get_items).to eq ["mow the lawn"]
+  end
+
+# add another test
+  it "trys to delete an item that isn't there" do
+    list.delete_item("i'm not there")
+    expect(list.get_items).to eq ["do the dishes", "mow the lawn"]
   end
 
   it "retrieves an item by index" do
