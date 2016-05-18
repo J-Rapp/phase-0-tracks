@@ -1,6 +1,5 @@
 # Jake Rapp and Will Friebel GPS 2.2
 
-
 # Method to create a list
 	# create a hash where the key is the grocery item and the value is the quantity
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
@@ -38,3 +37,62 @@
 # steps:
 	# hash.each{|key, value| puts "#{key} #{value}"}
 # output: none
+
+
+#DRIVER CODE
+
+#Adds items to the grocery list
+def add_item(item, quantity, list)
+  list[item.to_sym] = quantity
+end
+
+#Updates the quantity of an item
+def update_item(item, quantity, list)
+  if list.has_key?(item.to_sym)
+    add_item(item, quantity, list)
+    return true
+  else
+    return false
+  end
+end
+
+#Prints the list
+def print_list(list)
+  puts "-----------------------------"
+  list.each {|item, quantity| puts "#{item}: #{quantity}"}
+  puts "-----------------------------"
+end
+
+#Removes an item from the list
+def remove(item, list)
+  if list.has_key?(item.to_sym)
+    list.delete(item.to_sym)
+    return true
+  else 
+    return false
+  end 
+end
+
+#Create grocery list
+def create_list(list_str)
+  list = {}
+  list_str.split(" ").map {|item| list[item.to_sym] = 1}
+  list
+end
+
+
+#TEST CODE
+
+grocery_list = create_list("lemonade tomotoes onions ice-cream")
+print_list(grocery_list)
+update_item("lemonade", 2, grocery_list)
+print_list(grocery_list)
+update_item("tomotoes", 3, grocery_list)
+print_list(grocery_list)
+update_item("ice-cream", 4, grocery_list)
+print_list(grocery_list)
+remove("lemonade", grocery_list)
+print_list(grocery_list)
+update_item("ice-cream", 1, grocery_list)
+print_list(grocery_list)
+
