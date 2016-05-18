@@ -98,3 +98,25 @@ print_list(grocery_list)
 
 # Release 5
 
+# What did you learn about pseudocode from working on this challenge?
+	# I think this challenge helped me understand that pseudocode is really just plain English.
+	# Pseudocode really shouldn't even include syntax, it just needs to explain what happens, step by step
+# What are the tradeoffs of using arrays and hashes for this challenge?
+	# I think our choice of a hash seems best in this case, because of the key/value pairing for item/quantity. It worked perfectly with no tradeoffs.
+	# I seriously can't imagine pulling this data from arrays. I suppose two arrays where index values match item too quantity?
+	# I can't even see advantages to the array. Maybe if you like.. wanted to calculate total items it would be easier to get the sum of an array than values of a hash?
+# What does a method return?
+	# Is this a trick question? A method returns whatever you tell it to.. implictly via the last line or explicitly with the <return> tag
+# What kind of things can you pass into methods as arguments?
+	# Most classes (integer, string, array, hash)
+# How can you pass information between methods?
+	# By calling one method inside of the other
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+	# I think in general I'm understanding how to break methods into more bite-sized computers, giving them a small task
+	# I'm starting to get better at best practices with methods in that way
+	# I think the concept I'm struggling with most is conceptualizing (funny, right?) the best way to break a problem down
+	# Pseudocoding is currently a hindrance to me, because I tend to think about the big picture..
+	# in other words, my brain immediately goes to refactoring almost as a Step #1
+	# But DBC doesn't want that. DBC wants us to pseudocode and method our the smallest details.
+	# My brain just works bigger than that.. I want to see what the craziest chain of commands I can put together are.
+	
