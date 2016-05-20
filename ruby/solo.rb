@@ -40,7 +40,7 @@ class Ducky
 
 	def break
 		@bouyant = false
-		puts "#{@name} no longer floats :("
+		puts "#{@name} no longer floats :( Have you talked to someone about anger management?"
 	end
 
 	def gaze
@@ -72,7 +72,32 @@ end
 	# Ask user if they want to puncture the Ducky
 	# Store the Ducky instance data in an array
 	# Ask the user if they'd like to create another Ducky
-# Print the stored attribute data of each Ducky
+# When the user is done, print how many duckies were made
+# Neatly print the stored attribute data of each Ducky
 # Thank the user
+
+puts "Welcome to the Rubber Ducky Creator!"
+
+loop_done = false
+until loop_done
+
+	puts "What should this ducky be named?"
+
+	puts "How old is this ducky?"
+
+	puts "What color is this ducky?"
+
+	puts "Do you want to puncture the ducky?"
+
+	puts "Do you want to make another ducky?"
+	another = gets.chomp[0].downcase
+		if another == 'n'
+			puts "Okie doke!"
+			loop_done = true
+		else
+		end
+end
+
+
 
 
