@@ -1,8 +1,8 @@
 # Release 0 -
 
-# I will create a class for rubber ducks
-# Each duck will vary by name, color, age (in years), and whether or not it still floats
-# Each duck should be able to:
+# I will create a class for rubber duckies
+# Each ducky will vary by name, color, age (in years), and whether or not it still floats
+# Each ducky should be able to:
 	# quack when squeezed, results depending on "firmness" of squeeze
 	# bob in the water when splashed, results depending on severity of splash
 	# get punctured and no longer float
@@ -43,9 +43,7 @@ class Ducky
 	end
 
 	def gaze
-		puts "#{@name} stares into your soul with a cold, peircing gaze."
-		puts "Is #{@name} grateful? Indignant?"
-		puts "It's hard to say, but either way it's a little unsettling."
+		puts "...#{@name} stares into your soul in that way only a rubber ducky can..."
 	end
 end
 
@@ -57,7 +55,7 @@ end
 	# duck1.splash(3)
 	# duck1.break
 	# duck1.gaze
-# All instance methods work
+# All instance methods work, including ones with parameter arguments passed in
 
 # Release 2 prompt - 
 # Your user should be allowed to create as many instances of your class as they like.
@@ -101,16 +99,16 @@ until loop_done
 	puts ""
 	puts "Do you want to puncture the ducky?"
 	ouchie = gets.chomp[0].downcase
-		if ouchie == "y"
+		if ouchie == "y" || ouchie == "t"
 			new_duck.puncture
-			puts ""
 			puts "#{new_duck.name} no longer floats :("
 			puts "(Have you talked to someone about anger management?)"
 		else
-			puts ""
 			puts "(You're a good person!)"
 		end
 
+	puts ""
+	new_duck.gaze
 	ducky_array << new_duck
 
 	puts ""
