@@ -44,15 +44,35 @@ class Ducky
 	end
 
 	def gaze
-		puts "#{@name} stares into your soul with a peircing, cold gaze."
+		puts "#{@name} stares into your soul with a peircing, cold gaze. Is #{@name} grateful? Indignant? It's hard to say, but either way it's a little unsettling."
 	end
 end
 
 # DRIVER CODE
 
-# Testing basic Class methods from Release 1 - 
+# Testing basic Class methods from Release 1 -
 	# p duck1 = Ducky.new("Frank", 23, "yellow")
 	# duck1.squeeze("hard")
 	# duck1.splash(3)
 	# duck1.break
 	# duck1.gaze
+# All instance methods work
+
+# Release 2 prompt - 
+# Your user should be allowed to create as many instances of your class as they like.
+# Prompt the user for each attribute, and don't forget to convert their input to the appropriate data type. Store these class instances in an array.
+# When the user indicates that they are finished creating instances, loop through the array and print out the attributes of each instance as a confirmation message of what was created.
+
+# Release 2 pseudocode - 
+# Greet the user
+# Begin a loop
+	# Ask what name the Ducky should have
+	# Ask how old the Ducky is
+	# Ask what color the Ducky is
+	# Ask user if they want to puncture the Ducky
+	# Store the Ducky instance data in an array
+	# Ask the user if they'd like to create another Ducky
+# Print the stored attribute data of each Ducky
+# Thank the user
+
+
