@@ -5,7 +5,7 @@
 # Each duck should be able to:
 	# quack when squeezed, results depending on "firmness" of squeeze
 	# bob in the water when splashed, results depending on severity of splash
-	# break and no longer float
+	# get punctured and no longer float
 	# stare into your soul. all the time.
 
 # Release 1 -
@@ -38,7 +38,7 @@ class Ducky
 		waves.times {|each| puts "bob."}
 	end
 
-	def break
+	def puncture
 		@bouyant = false
 		puts "#{@name} no longer floats :( Have you talked to someone about anger management?"
 	end
@@ -78,26 +78,46 @@ end
 
 puts "Welcome to the Rubber Ducky Creator!"
 
+ducky_array = []
 loop_done = false
 until loop_done
 
 	puts "What should this ducky be named?"
+	ducky_name = gets.chomp
 
-	puts "How old is this ducky?"
+	puts "How many years old is this ducky?"
+	ducky_age = gets.chomp.to_i
 
 	puts "What color is this ducky?"
+	ducky_color = gets.chomp
+
+	new_duck = Ducky.new(ducky_name, ducky_age, ducky_color)
 
 	puts "Do you want to puncture the ducky?"
+	ouchie = gets.chomp[0].downcase
+		if ouchie == "y"
+			new_duck.puncture
+		else
+			puts "You're a good person!"
+		end
+
+	ducky_array << new_duck
 
 	puts "Do you want to make another ducky?"
 	another = gets.chomp[0].downcase
-		if another == 'n'
+		if another == "n"
 			puts "Okie doke!"
 			loop_done = true
 		else
 		end
 end
 
+puts "You made #{ducky_array.length} duckies!"
+p ducky_array
+
+# ducky_array.each do |duck|
+# 	puts "ducky!"
+# end
 
 
 
