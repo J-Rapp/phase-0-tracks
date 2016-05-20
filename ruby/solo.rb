@@ -40,11 +40,12 @@ class Ducky
 
 	def puncture
 		@bouyant = false
-		puts "#{@name} no longer floats :( Have you talked to someone about anger management?"
 	end
 
 	def gaze
-		puts "#{@name} stares into your soul with a peircing, cold gaze. Is #{@name} grateful? Indignant? It's hard to say, but either way it's a little unsettling."
+		puts "#{@name} stares into your soul with a cold, peircing gaze."
+		puts "Is #{@name} grateful? Indignant?"
+		puts "It's hard to say, but either way it's a little unsettling."
 	end
 end
 
@@ -76,33 +77,43 @@ end
 # Neatly print the stored attribute data of each Ducky
 # Thank the user
 
+puts "" # I add empty strings throughout my driver code for formatting purposes when the program is running.
 puts "Welcome to the Rubber Ducky Creator!"
 
 ducky_array = []
 loop_done = false
 until loop_done
 
+	puts ""
 	puts "What should this ducky be named?"
 	ducky_name = gets.chomp
 
+	puts ""
 	puts "How many years old is this ducky?"
 	ducky_age = gets.chomp.to_i
 
+	puts ""
 	puts "What color is this ducky?"
 	ducky_color = gets.chomp
 
 	new_duck = Ducky.new(ducky_name, ducky_age, ducky_color)
 
+	puts ""
 	puts "Do you want to puncture the ducky?"
 	ouchie = gets.chomp[0].downcase
 		if ouchie == "y"
 			new_duck.puncture
+			puts ""
+			puts "#{new_duck.name} no longer floats :("
+			puts "(Have you talked to someone about anger management?)"
 		else
-			puts "You're a good person!"
+			puts ""
+			puts "(You're a good person!)"
 		end
 
 	ducky_array << new_duck
 
+	puts ""
 	puts "Do you want to make another ducky?"
 	another = gets.chomp[0].downcase
 		if another == "n"
@@ -112,12 +123,18 @@ until loop_done
 		end
 end
 
-puts "You made #{ducky_array.length} duckies!"
-p ducky_array
+puts ""
 
-# ducky_array.each do |duck|
-# 	puts "ducky!"
-# end
+if ducky_array.length == 1
+	puts "You made 1 ducky:"
+else
+	puts "You made #{ducky_array.length} duckies:"
+end
 
+ducky_array.each do |duck|
+	puts "#{duck.name} is a #{duck.age}-year-old, #{duck.color} ducky! (Bouyant: #{duck.bouyant})"
+end
 
-
+puts ""
+puts "Thank you for using the Rubber Ducky Creator!"
+puts ""
