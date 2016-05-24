@@ -53,18 +53,38 @@
 	// }
 	//
 	// for (i = 1; i <= 10; i++){
-	//		console.log(i)
+	//		console.log(i);
 	// }
 	//
 	// for (i = 10; i > 0; i--){
-	// 		console.log(i)
+	// 		console.log(i);
 	// }
 
 // Release 4:
 
+// Pseudocode:
+// function: reverse the characters of a string
+// input: a word or phrase
+// steps:
+	// Set an empty container for our new word or phrase
+	// find the length of the word/number of characters
+	// grab the last character from the word or phrase, and place it as the first character in a new word or phrase
+	// reduce "cursor" place by one on old word or phrase, repeat placement on new word or phrase
+	// return new word or phrase
+// output: a new word or phrase
 
+function reverseChar(input) {
+	var newString = ""
+	for (var i = (input.length - 1); i >= 0; i--){
+		var letter = (input[i]);
+		newString = newString + letter;
+	}
+	return newString
+}
 
-
+console.log(reverseChar("whaddup"))
+console.log(reverseChar("A big long phrase"))
+console.log(reverseChar("hello!"))
 
 
 
