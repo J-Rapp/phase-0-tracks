@@ -86,8 +86,10 @@ console.log(reverseChar("whaddup"))
 console.log(reverseChar("A big long phrase"))
 console.log(reverseChar("hello!"))
 
-
-
-
-
+var reversedVariable = reverseChar("I'M WALKIN' HERE!")
+if (1 === 1){
+	console.log(reversedVariable);
+} else {
+	console.log(reverseChar("ymmud"));
+}
 
