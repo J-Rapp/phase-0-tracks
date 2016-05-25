@@ -6,21 +6,26 @@
 // 		stores value as "greatest"
 //		checks if next value is greater than the last
 // 		if it's bigger, overwrites that index
+//      optional step - if there is a tie print both values
 // output: an array of string(s)
+
 
 function longestString(array){
 	var longestStringLength = 0;
 	var longestStringIndex = 0;
-	var longestStringArray = [];
+	// var longestStringsArray = [];
 	for (var arrayIndex = 0; arrayIndex < array.length; arrayIndex++){
-		if (array[arrayIndex].length >= longestStringLength) {
+		if (array[arrayIndex].length > longestStringLength) {
 			longestStringIndex = arrayIndex;
 			longestStringLength = array[arrayIndex].length;
-		} else {
+		} // else if (array[arrayIndex].length == longestStringLength){ figure out a way to store both } 
+		else {
 		}
 	}
-	return longestStringArray;
+	return array[longestStringIndex]; // or longestStringsArray if two objects are equal length
 }
 
-var testArray = ["tubas", "bears", "corvettes", "hyenas"]
-console.log(longestString(testArray))
+var testArray1 = ["tubas", "bears", "corvettes", "hyenas"];
+console.log(longestString(testArray1))
+var testArray2 = ["a", "did you know?", "well hey there", "surprise"]
+console.log(longestString(testArray2))
