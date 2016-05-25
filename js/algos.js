@@ -6,7 +6,7 @@
 // 		stores value as "greatest"
 //		checks if next value is greater than the last
 // 		if it's bigger, overwrites that index
-//      optional step - if there is a tie print both values
+//      optional step - if there is a tie, print both values
 // output: an array of string(s)
 
 
@@ -24,6 +24,19 @@ function longestString(array){
 	}
 	return array[longestStringIndex]; // or longestStringsArray if two objects are equal length
 }
+
+// create a function that checks if two objects share a key/value pair
+// input: two objects
+// steps: 
+//		
+// output: true or false
+
+
+
+
+
+
+
 
 var testArray1 = ["tubas", "bears", "corvettes", "hyenas"];
 console.log(longestString(testArray1))
