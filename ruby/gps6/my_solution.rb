@@ -1,11 +1,8 @@
 # Virus Predictor
 
 # I worked on this challenge Audrey Kang.
-# We spent 90 minutes on this challenge.
+# We spent ~90 minutes on this challenge.
 
-# EXPLANATION OF require_relative
-#
-#
 require_relative 'state_data'
 
 class VirusPredictor
@@ -97,8 +94,8 @@ pull population density and population
 
 STATE_DATA.each do |state, value|
   instance = VirusPredictor.new(state, value[:population_density], value[:population])
- instance.virus_effects
-  end
+  instance.virus_effects
+end
 
 
 # alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
@@ -116,10 +113,34 @@ STATE_DATA.each do |state, value|
 
 #=======================================================================
 # Reflection Section
-#require_relative - shortcut to the file within the same directory.
-#require - bigger scope where you can retrieve file outside of directory.
-#What are the differences between the two different hash syntaxes shown in the state_data file?
-#What does require_relative do? How is it different from require?
-#What are some ways to iterate through a hash?
-#When refactoring virus_effects, what stood out to you about the variables, if anything?
-#What concept did you most solidify in this challenge?
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+# This first hash syntax uses a string (as key) with a hash rocket, which is helpful because when we set it as an instance attribute it's automatically what we need it to be instead of having to convert it.
+# The second (nested) hash syntax uses a symbol (as key).
+
+# What does require_relative do? How is it different from require?
+# Require_relative is a subset of reuire, and is a nice "short hand" that just searches the a basic directory path.
+# Require allows you to use a more detailed path if the file in question isn't in the directory, but it's a little messier to type out.
+
+# What are some ways to iterate through a hash?
+# Some methods that iterate (as in not just pass over but actually do something via a block) through an entire hash - 
+# .each, .each_pair, .each_key, and .each_value
+# .keep_if
+# .new
+# .delete, delete_if
+# .fetch
+# .merge
+# .reject
+# .select
+# .update
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+# I actually struggled with refactoring quite a bit. I'm still not certain the best way to make lean/dry code.
+# Our guide had to take off and unfortunately my partner wasn't very clear on refactoring either, so we just tried to find places in the code where there was redundancy of variables and attributes.
+# For example, the speed_of_spread method didn't actually need two argument passed in, the "state" attribute wasn't even used in that method.
+
+# What concept did you most solidify in this challenge?
+# I think I most solidified how to iterate over slightly complex things, like nested data structures. 
+# It takes significant brain power to comprehend what is going on while calling a method on a hash and how your pblock parameters work to access the nested data, etc.
+
+
