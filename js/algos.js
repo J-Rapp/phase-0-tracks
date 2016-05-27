@@ -33,20 +33,15 @@ function longestString(array){
 // create a function that checks if two objects share a key/value pair
 // input: two objects
 // ideas for steps (in no specific order): 
-//		using the variable index of an object
-//		using that index, oop through the other object to check for matches
-//		break the index(es) up for character comparison?
-//		use && or || to see if characters match
+//		loop through the properties of one of the two objects
+//		using that property, check to see if the other object has it and if the value is the same
 // output: true or false
 
 function objectMatcher(object1, object2){
 	var match = false;
 	for (var property in object1) {
-		if (object2.hasOwnProperty(property)) {
-			match = (object1[property]==object2[property]);
-				if (match) {
-					return match;
-				}
+		if (object1[property]==object2[property]) {
+			match = true;
 		}
 	}
 	return match
@@ -63,34 +58,30 @@ function objectMatcher(object1, object2){
 // var testArray2 = ["a", "did you know?", "well hey there", "surprise"]
 // console.log(longestString(testArray2))
 
-// Release 1
+// // Release 1
 
-var baby = {
-	age: 1,
-	basicallyDrunk: "yes",
-	cirrhosis: false,
-	"dumb": true
-}
-var drunkPerson = {
-	age: 56,
-	basicallyDrunk: "yes",
-	cirrhosis: true,
-	dumb: true
-}
+// var baby = {
+// 	age: 1,
+// 	basicallyDrunk: "yes",
+// 	cirrhosis: false,
+// }
+// var drunkPerson = {
+// 	age: 56,
+// 	"basicallyDrunk": "yes",
+// 	cirrhosis: true,
+// }
+// console.log(objectMatcher(baby, drunkPerson));
 
-console.log(objectMatcher(baby, drunkPerson));
+// var animal = {
+// 	mineral: false,
+// 	distinct: "true" // when referencing Object[property], data type apparently matters.
+// }
 
-var animal = {
-	mineral: false,
-	distinct: "true" // when referencing Object[property], data type apparently matters.
-}
-
-var mineral = {
-	animal: false,
-	distinct: true
-}
-
-console.log(objectMatcher(animal, mineral));
+// var mineral = {
+// 	animal: false,
+// 	distinct: true
+// }
+// console.log(objectMatcher(animal, mineral));
 
 
 
