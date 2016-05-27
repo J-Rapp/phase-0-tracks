@@ -1,4 +1,4 @@
-// FUNCTION CODE:
+// // // FUNCTION CODE: // // //
 
 // Release 0
 
@@ -10,22 +10,23 @@
 // 		stores value as "greatest"
 //		checks if next value is greater than the last
 // 		if it's bigger, overwrites that index
-//      optional step - if there is a tie, print both values
-// output: an array of string(s)
+//      optional step - if there is a tie, print all equal-length strings
+// output: array of one string or multiple
 
 function longestString(array){
 	var longestStringLength = 0;
-	var longestStringIndex = 0;
-	// var longestStringsArray = [];
+	var longestStringsArray = [];
 	for (var arrayIndex = 0; arrayIndex < array.length; arrayIndex++){
 		if (array[arrayIndex].length > longestStringLength) {
-			longestStringIndex = arrayIndex;
 			longestStringLength = array[arrayIndex].length;
-		} // else if (array[arrayIndex].length == longestStringLength){ figure out a way to store both } 
-		else {
+			longestStringsArray = [];
+			longestStringsArray.push(array[arrayIndex]);
+		} else if (array[arrayIndex].length == longestStringLength) { 
+			longestStringsArray.push(array[arrayIndex]);
+		} else {
 		}
 	}
-	return array[longestStringIndex]; // or longestStringsArray if two objects are equal length
+	return longestStringsArray;
 }
 
 // Release 1
@@ -48,25 +49,33 @@ function objectMatcher(object1, object2){
 }
 
 // Release 2
+// create a function that generates a specified number of words
 // input: an integer
 // ideas for steps (in no specific order):
 //		integer sets loop number
 //		each loop
-//			generates number
-//			transform to letters
+//			generates whole number
+//			create word (another loop?)
 //			store in array
 // output: an array
 
-function wordMaker(number) {
+function wordMaker(arrayLength) {
 	wordArray = []
-	for (number; number > 0; number--) {
-		wordArray.push(number)
+	alphabet = "abcdefghijklmnopqrstuvwxyz"
+	for (arrayLength; arrayLength > 0; arrayLength--) {
+		word = "";
+		randLength = Math.round(Math.random() * 9) + 1
+			for (randLength; randLength > 0; randLength--) {
+				randLetter = alphabet.charAt(Math.floor(Math.random() * (alphabet.length - 1)));
+				word = word + randLetter;
+			}
+		wordArray.push(word);
 	}
 	return wordArray
 }
 
 
-// // DRIVER CODE
+// // // DRIVER CODE // // //
 
 // // Release 0
 
@@ -74,6 +83,10 @@ function wordMaker(number) {
 // console.log(longestString(testArray1))
 // var testArray2 = ["a", "did you know?", "well hey there", "surprise"]
 // console.log(longestString(testArray2))
+// var testArray3 = ["hi", "hello", "beans"] // testing two same length
+// console.log(longestString(testArray3))
+// var testArray4 = ["hi", "hello", "beans", "smiles"] // testing two same length and then greater length
+// console.log(longestString(testArray4))
 
 // // Release 1
 
@@ -102,9 +115,19 @@ function wordMaker(number) {
 // }
 // console.log(objectMatcher(animal, mineral));
 
-// Release 2
+// // Release 2
 
-console.log(wordMaker(3))
+// console.log(wordMaker(3))
+// console.log(wordMaker(6))
+// console.log(wordMaker(9))
 
+for (var times = 10; times > 0; times--) {
+	array = (wordMaker(5))
+	console.log("Array of five random length strings:")
+	console.log(array)
+	longest = longestString(array)
+	console.log("Longest string(s): " + longest)
+	console.log("")
+}
 
 
