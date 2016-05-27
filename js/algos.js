@@ -47,9 +47,26 @@ function objectMatcher(object1, object2){
 	return match
 }
 
+// Release 2
+// input: an integer
+// ideas for steps (in no specific order):
+//		integer sets loop number
+//		each loop
+//			generates number
+//			transform to letters
+//			store in array
+// output: an array
+
+function wordMaker(number) {
+	wordArray = []
+	for (number; number > 0; number--) {
+		wordArray.push(number)
+	}
+	return wordArray
+}
 
 
-// DRIVER CODE
+// // DRIVER CODE
 
 // // Release 0
 
@@ -60,6 +77,7 @@ function objectMatcher(object1, object2){
 
 // // Release 1
 
+// // "TRUE" outcome
 // var baby = {
 // 	age: 1,
 // 	basicallyDrunk: "yes",
@@ -72,6 +90,7 @@ function objectMatcher(object1, object2){
 // }
 // console.log(objectMatcher(baby, drunkPerson));
 
+// // "FALSE" outcome
 // var animal = {
 // 	mineral: false,
 // 	distinct: "true" // when referencing Object[property], data type apparently matters.
@@ -82,6 +101,10 @@ function objectMatcher(object1, object2){
 // 	distinct: true
 // }
 // console.log(objectMatcher(animal, mineral));
+
+// Release 2
+
+console.log(wordMaker(3))
 
 
 
