@@ -1,0 +1,152 @@
+
+
+NOTE: I have .headers set to "on" so every output will include a first line indicating what he column names printed are.
+
+——— RELEASE 2 ———
+
+input:
+
+SELECT * FROM user;
+
+output: 
+
+id|name|age|location_id|active
+1|Jeff|45|5|true
+2|Samantha|31|2|false
+3|Reginald|23|1|true
+4|Bjorn|25|7|false
+5|Alyssa|23|3|true
+6|Denice|57|6|true
+7|Wanda|33|4|false
+8|Izzy|49|2|true
+9|Iggy|19|7|false
+10|Barack|29|6|false
+11|Asimo|99|4|true
+
+
+
+input:
+
+SELECT * FROM locations;
+
+output:
+
+id|location
+1|Seattle
+2|NYC
+3|Chicago
+4|San Francisco
+5|Austin
+6|San Diego
+7|Washington, D.C.
+
+
+
+input:
+
+UPDATE user SET active = "true" WHERE name = "Iggy";
+
+output:
+
+NO OUTPUT
+but if I enter "SELECT active FROM user WHERE name = "Iggy";" output is then
+true
+
+
+
+input:
+
+SELECT * FROM user, locations WHERE location_id = locations.id;
+
+output:
+
+id|name|age|location_id|active|id|location
+1|Jeff|45|5|true|5|Austin
+2|Samantha|31|2|false|2|NYC
+3|Reginald|23|1|true|1|Seattle
+4|Bjorn|25|7|false|7|Washington, D.C.
+5|Alyssa|23|3|true|3|Chicago
+6|Denice|57|6|true|6|San Diego
+7|Wanda|33|4|false|4|San Francisco
+8|Izzy|49|2|true|2|NYC
+9|Iggy|19|7|true|7|Washington, D.C.
+10|Barack|29|6|false|6|San Diego
+11|Asimo|99|4|true|4|San Francisco
+
+
+
+input:
+
+SELECT user.name, user.age, user.active, locations.location FROM user, locations WHERE location_id = locations.id;
+
+output:
+
+name|age|active|location
+Jeff|45|true|Austin
+Samantha|31|false|NYC
+Reginald|23|true|Seattle
+Bjorn|25|false|Washington, D.C.
+Alyssa|23|true|Chicago
+Denice|57|true|San Diego
+Wanda|33|false|San Francisco
+Izzy|49|true|NYC
+Iggy|19|true|Washington, D.C.
+Barack|29|false|San Diego
+Asimo|99|true|San Francisco
+
+
+
+input:
+
+DELETE FROM user WHERE active = "false";
+
+output:
+
+NO OUTPUT
+but if I enter "SELECT * FROM user;" output is then
+id|name|age|location_id|active
+1|Jeff|45|5|true
+3|Reginald|23|1|true
+5|Alyssa|23|3|true
+6|Denice|57|6|true
+8|Izzy|49|2|true
+9|Iggy|19|7|true
+11|Asimo|99|4|true
+
+
+——— RELEASE 3 ———
+
+input:
+
+SELECT name, age, location FROM user INNER JOIN locations ON location_id = locations.id;
+
+output:
+
+Jeff|45|Austin
+Reginald|23|Seattle
+Alyssa|23|Chicago
+Denice|57|San Diego
+Izzy|49|NYC
+Iggy|19|Washington, D.C.
+Asimo|99|San Francisco
+
+
+input:
+
+SELECT location, name FROM locations LEFT JOIN user ON location_id = locations.id;
+
+output (NOTE I manipulated the user table in order to test double locations and locations with no users):
+
+Seattle|Jake
+Seattle|Reginald
+NYC|Izzy
+Chicago|Alyssa
+San Francisco|Asimo
+Austin|
+San Diego|Denice
+Washington, D.C.|Iggy
+
+
+I tried Right and Full joins but got:
+"RIGHT and FULL OUTER JOINs are not currently supported"
+
