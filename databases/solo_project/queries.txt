@@ -2,10 +2,11 @@
 
 NOTE: I have .headers set to "on" so every output will include a first line indicating what he column names printed are.
 
+——— RELEASE 2 ———
 
 input:
 
-select * from user;
+SELECT * FROM user;
 
 output: 
 
@@ -26,7 +27,7 @@ id|name|age|location_id|active
 
 input:
 
-select * from locations;
+SELECT * FROM locations;
 
 output:
 
@@ -43,19 +44,19 @@ id|location
 
 input:
 
-update user set active = "true" where name = "Iggy";
+UPDATE user SET active = "true" WHERE name = "Iggy";
 
 output:
 
 NO OUTPUT
-but if I enter "select active from user where name = "Iggy";" output is then
+but if I enter "SELECT active FROM user WHERE name = "Iggy";" output is then
 true
 
 
 
 input:
 
-select * from user, locations where location_id = locations.id;
+SELECT * FROM user, locations WHERE location_id = locations.id;
 
 output:
 
@@ -76,7 +77,7 @@ id|name|age|location_id|active|id|location
 
 input:
 
-select user.name, user.age, user.active, locations.location from user, locations where location_id = locations.id;
+SELECT user.name, user.age, user.active, locations.location FROM user, locations WHERE location_id = locations.id;
 
 output:
 
@@ -97,12 +98,12 @@ Asimo|99|true|San Francisco
 
 input:
 
-delete from user where active = "false";
+DELETE FROM user WHERE active = "false";
 
 output:
 
 NO OUTPUT
-but if I enter "select * from user;" output is then
+but if I enter "SELECT * FROM user;" output is then
 id|name|age|location_id|active
 1|Jeff|45|5|true
 3|Reginald|23|1|true
@@ -113,5 +114,39 @@ id|name|age|location_id|active
 11|Asimo|99|4|true
 
 
+——— RELEASE 3 ———
 
+input:
+
+SELECT name, age, location FROM user INNER JOIN locations ON location_id = locations.id;
+
+output:
+
+Jeff|45|Austin
+Reginald|23|Seattle
+Alyssa|23|Chicago
+Denice|57|San Diego
+Izzy|49|NYC
+Iggy|19|Washington, D.C.
+Asimo|99|San Francisco
+
+
+input:
+
+SELECT location, name FROM locations LEFT JOIN user ON location_id = locations.id;
+
+output (NOTE I manipulated the user table in order to test double locations and locations with no users):
+
+Seattle|Jake
+Seattle|Reginald
+NYC|Izzy
+Chicago|Alyssa
+San Francisco|Asimo
+Austin|
+San Diego|Denice
+Washington, D.C.|Iggy
+
+
+I tried Right and Full joins but got:
+"RIGHT and FULL OUTER JOINs are not currently supported"
 
