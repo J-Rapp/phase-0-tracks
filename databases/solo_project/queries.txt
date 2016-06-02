@@ -1,0 +1,117 @@
+
+
+NOTE: I have .headers set to "on" so every output will include a first line indicating what he column names printed are.
+
+
+input:
+
+select * from user;
+
+output: 
+
+id|name|age|location_id|active
+1|Jeff|45|5|true
+2|Samantha|31|2|false
+3|Reginald|23|1|true
+4|Bjorn|25|7|false
+5|Alyssa|23|3|true
+6|Denice|57|6|true
+7|Wanda|33|4|false
+8|Izzy|49|2|true
+9|Iggy|19|7|false
+10|Barack|29|6|false
+11|Asimo|99|4|true
+
+
+
+input:
+
+select * from locations;
+
+output:
+
+id|location
+1|Seattle
+2|NYC
+3|Chicago
+4|San Francisco
+5|Austin
+6|San Diego
+7|Washington, D.C.
+
+
+
+input:
+
+update user set active = "true" where name = "Iggy";
+
+output:
+
+NO OUTPUT
+but if I enter "select active from user where name = "Iggy";" output is then
+true
+
+
+
+input:
+
+select * from user, locations where location_id = locations.id;
+
+output:
+
+id|name|age|location_id|active|id|location
+1|Jeff|45|5|true|5|Austin
+2|Samantha|31|2|false|2|NYC
+3|Reginald|23|1|true|1|Seattle
+4|Bjorn|25|7|false|7|Washington, D.C.
+5|Alyssa|23|3|true|3|Chicago
+6|Denice|57|6|true|6|San Diego
+7|Wanda|33|4|false|4|San Francisco
+8|Izzy|49|2|true|2|NYC
+9|Iggy|19|7|true|7|Washington, D.C.
+10|Barack|29|6|false|6|San Diego
+11|Asimo|99|4|true|4|San Francisco
+
+
+
+input:
+
+select user.name, user.age, user.active, locations.location from user, locations where location_id = locations.id;
+
+output:
+
+name|age|active|location
+Jeff|45|true|Austin
+Samantha|31|false|NYC
+Reginald|23|true|Seattle
+Bjorn|25|false|Washington, D.C.
+Alyssa|23|true|Chicago
+Denice|57|true|San Diego
+Wanda|33|false|San Francisco
+Izzy|49|true|NYC
+Iggy|19|true|Washington, D.C.
+Barack|29|false|San Diego
+Asimo|99|true|San Francisco
+
+
+
+input:
+
+delete from user where active = "false";
+
+output:
+
+NO OUTPUT
+but if I enter "select * from user;" output is then
+id|name|age|location_id|active
+1|Jeff|45|5|true
+3|Reginald|23|1|true
+5|Alyssa|23|3|true
+6|Denice|57|6|true
+8|Izzy|49|2|true
+9|Iggy|19|7|true
+11|Asimo|99|4|true
+
+
+
+
