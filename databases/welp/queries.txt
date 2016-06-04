@@ -1,0 +1,38 @@
+Paired with Max Bigras
+Database files and schema image can be found in his repo:
+https://github.com/mbigras/phase-0-tracks/tree/master/databases/welp
+
+
+
+--join 3 tables--
+
+sqlite> select comment, businesses.name, users.first_name
+   ...> from reviews
+   ...> join businesses on businesses.id = business_id
+   ...> join users on users.id = user_id
+   ...> ;
+
+--users name, business name, stars, comment; pulling from users--
+
+sqlite> select first_name, businesses.name, reviews.stars, reviews.comment
+   ...> from users
+   ...> join businesses on businesses.id = business_id
+   ...> join reviews on reviews.user_id = users.id
+   ...> ;
+first_name|name|stars|comment
+Steven|Lotus Yoga|5|soooooo good!
+Holly|Sushi World|1|foooooood poisoning
+Holly|Amir's Towing|3|repeat review from Holly
+Denzel|Sushi World|3|repeat review of Sushi
+
+--business name, reviews.stars, reviews.comment, users.first_name--
+
+sqlite> select name, stars, comment, first_name
+   ...> from reviews
+   ...> join businesses on business_id = businesses.id
+   ...> join users on user_id = users.id
+   ...> where name="Sushi World"
+   ...> ;
+name|stars|comment|first_name
+Sushi World|1|foooooood poisoning|Holly
+Sushi World|3|repeat review of Sushi|Denzel
