@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> <!-- is this necessary? -->
+	<title>jQuery Shiz</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<script src="jquery.js"></script>
+</head>
+<body>
+<h1>Well, Hello!</h1>
+<button class="regular">Whaddup?</button>
+    <script>
+    $("button")
+    .mouseover(function() {
+    	$(this).css({
+    		"background-color": "red"
+    	})
+    })
+    .mouseleave(function(){
+    	$(this).css({
+    		"background-color": "#4CAF50"
+    	})
+    })
+    ;
+    </script>
+</body>
+</html>
