@@ -56,3 +56,9 @@ ___________________
 
 3) OK it's 10:46
     - Step 1 lets get basic jquery set up in the directory and see if we can run a html page without an error
+    - 10:58 just took a quick break, back now
+    - 11:00 jQuery file has compressed jquery 3.0 and page runs in browser with no visible errors
+    - 11:10 css style sheet in place
+    - let's say I want the button color to strobe intense rainbow colors when the user hovers over it
+    - 11:30 check-in: doing ok, having some issues with syntax but I'm not entirely lost just yet - gonna commit everything since it's been a while
+    - 
