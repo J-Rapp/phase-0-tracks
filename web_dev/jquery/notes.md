@@ -61,4 +61,19 @@ ___________________
     - 11:10 css style sheet in place
     - let's say I want the button color to strobe intense rainbow colors when the user hovers over it
     - 11:30 check-in: doing ok, having some issues with syntax but I'm not entirely lost just yet - gonna commit everything since it's been a while
-    - 
+    - Got a basic mouse over working, but had trouble with the strobing. Tried .toggleClass with some other CSS class/background colors, but no luck. Maybe with some more time!
+    
+____________________
+
+4) It's 11:59
+    - Aight, so two hours ago I knew jack squat about jQuery and now I've got some no error jQuery stuff working in an html page, so pat on the back there
+    - Thoughts on jQuery:
+        + It's pretty cool
+        + I think I still need to understand more about javascript to make it REALLY cool
+        + the syntax is a little tough
+        + I'd like to try and have all the script at the top of the page, if I had more time I probably could have figured that out
+    - Thoughts on timeboxing:
+        + I actually stayed pretty on track
+        + I think planning out the timeboxing was a little weird, but helpful
+        + I hope eventually I don't need to make the timeboxing template and just perform well by looking at the clock alone
+        + Until I get better at naturally timeboxing, this was pretty effective
