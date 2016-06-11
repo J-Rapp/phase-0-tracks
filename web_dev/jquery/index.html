@@ -8,19 +8,20 @@
 </head>
 <body>
 <h1>Well, Hello!</h1>
-<button id="thing1">Whaddup?</button>
+<button class="regular">Whaddup?</button>
     <script>
     $("button")
-    .mouseenter(function() {
+    .mouseover(function() {
     	$(this).css({
     		"background-color": "red"
     	})
     })
-    .mouseleave(function() {
+    .mouseleave(function(){
     	$(this).css({
     		"background-color": "#4CAF50"
     	})
-    });
+    })
+    ;
     </script>
 </body>
 </html>
