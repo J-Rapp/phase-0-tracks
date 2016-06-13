@@ -84,3 +84,21 @@ get "/location/:thing" do
   end
   result
 end
+
+# Release 1 notes:
+
+# 1) other web app libraries for Ruby:
+#   - Rails!!!!!
+#   - Nitro
+#   - Merb
+#   - Camping
+# 2) other databses that work with Sinatra:
+#   - Mongo?
+#   - Data mapper?
+#   - ActiveRecord?
+# 3) what is a web stack?
+#   - A complete range of software to make a website work:
+#     - Operating System (Mac)
+#     - Programming language (Ruby)
+#     - Database software (SQLite3)
+#     - Web server (Sinatra)
