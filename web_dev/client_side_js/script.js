@@ -1,7 +1,18 @@
 console.log("Yo whaddup world");
 
-var listEl = document.getElementsByTagName("li");
+function addPinkBorder(){
+	var listEl = document.getElementsByTagName("li");
+	for (var i=0; i<listEl.length; i++){
+		listEl[i].style.border = "2px solid pink";
+	}
 
-for (var i=0; i<listEl.length; i++){
-	listEl[i].style.border = "1px dashed pink";
-}
+	var paragraph = document.createElement("p");
+	var textNodeTest = document.createTextNode("Not that scary I guess!");
+	paragraph.appendChild(textNodeTest);
+
+	var addOn = document.getElementById("secret");
+	addOn.appendChild(paragraph);
+};
+
+var scaryButton = document.getElementById('scary');
+scaryButton.addEventListener("click", addPinkBorder);
